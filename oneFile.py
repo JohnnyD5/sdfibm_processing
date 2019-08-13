@@ -12,8 +12,9 @@ pd.set_option('expand_frame_repr', True)
 class oneFile():
     def __init__(self, path = None):
         if path is None:
-            self.path = 'D:/work/LidDrivenCavity/with_shashank/k_Re/case_k0.20_Re5/'
-        self.path = self.path + 'cloud.out'
+            self.path = 'D:/work/LidDrivenCavity/with_shashank/k_Re/case_k0.20_Re5' + '/cloud.out'
+        else:
+            self.path = path + '/cloud.out'
         pdf=pd.read_csv(self.path, delimiter = ' ', names = ["t", "x", "y", "z",
                        "vx", "vy", "vz", "fx", "fy", "fz", "EulerAx", "EulerAy",
                        "EulerAz", "wx", "wy", "wz", "Tx", "Ty", "Tz"])
@@ -44,5 +45,5 @@ class oneFile():
         print(self.path)
         return 0
 
-a = oneFile()
+a = oneFile('D:/work/LidDrivenCavity/with_shashank/k_Re/case_k0.33_Re10')
 a.plot_angularV_over_t()
