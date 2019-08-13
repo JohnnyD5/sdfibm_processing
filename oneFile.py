@@ -5,7 +5,6 @@ Created on Sun Jul 28 10:02:50 2019
 @author: zding5
 """
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 pd.set_option('precision', 6)
 pd.set_option('expand_frame_repr', True)
@@ -17,7 +16,7 @@ class oneFile():
         self.path = self.path + 'cloud.out'
         pdf=pd.read_csv(self.path, delimiter = ' ', names = ["t", "x", "y", "z",
                        "vx", "vy", "vz", "fx", "fy", "fz", "EulerAx", "EulerAy",
-                       "EulerAz", "wx", "wy", "wz", "Tx", "Ty", "Tz"]
+                       "EulerAz", "wx", "wy", "wz", "Tx", "Ty", "Tz"])
         pdf.to_hdf('cloud.h5',key='cloud')
         self.data = pd.read_hdf('cloud.h5', key='cloud')
         self.data['v_mag'] = (self.data['vx']**2 + self.data['vy']**2)**0.5
@@ -25,9 +24,9 @@ class oneFile():
     def plot_angularV_over_t(self, t = None, y = None):
         # Plot the angular velocity of the ellipse over time
         if t is None:
-            x = self.data['t']
+            t = self.data['t']
         if y is None:
-            y = self.data['wz']
+            y = abs(self.data['wz'])
         fig, ax = plt.subplots(figsize=(6, 5))
         ax.plot(t, y)
         ax.set_xlabel('t')
@@ -46,5 +45,4 @@ class oneFile():
         return 0
 
 a = oneFile()
-print(a.data)
-#a.contour_plot_vfluc()
+a.plot_angularV_over_t()
