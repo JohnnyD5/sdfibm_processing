@@ -13,5 +13,6 @@ for k in k_list:
         os.system('cp -r 0 ../download/%s/'% casename)
         os.system('cp -r constant ../download/%s/'% casename)
         os.system('cp -r system ../download/%s/'% casename)
+        os.system('cp solidDict ../download/%s/'% casename)
         os.chdir('..')
 print("Program runs successfully!")
