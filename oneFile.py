@@ -45,5 +45,6 @@ class oneFile():
         print(self.path)
         return 0
 
-a = oneFile('D:/work/LidDrivenCavity/with_shashank/k_Re/case_k0.33_Re10')
-a.plot_angularV_over_t()
+if __name__ == '__main__':
+    case = oneFile('D:/work/LidDrivenCavity/with_shashank/k_Re/case_k0.33_Re5')
+    case.plot_angularV_over_t()
