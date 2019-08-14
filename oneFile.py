@@ -52,7 +52,7 @@ if __name__ == '__main__':
     for i, c in enumerate(path):
         if c == '\\':
             path[i] = '/'
-    path = ''.join(path)        
+    path = ''.join(path)
     ###
-    case = oneFile('D:/work/LidDrivenCavity/with_shashank/k_Re/case_k0.33_Re5')
+    case = oneFile(path)
     case.plot_angularV_over_t()
