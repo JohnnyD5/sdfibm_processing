@@ -18,8 +18,8 @@ class oneFile():
         pdf=pd.read_csv(self.path, delimiter = ' ', names = ["t", "x", "y", "z",
                        "vx", "vy", "vz", "fx", "fy", "fz", "EulerAx", "EulerAy",
                        "EulerAz", "wx", "wy", "wz", "Tx", "Ty", "Tz"])
-        pdf.to_hdf('cloud.h5',key='cloud')
-        self.data = pd.read_hdf('cloud.h5', key='cloud')
+        pdf.to_hdf(path + '/cloud.h5',key='cloud')
+        self.data = pd.read_hdf(path + '/cloud.h5', key='cloud')
         self.data['v_mag'] = (self.data['vx']**2 + self.data['vy']**2)**0.5
 
     def plot_angularV_over_t(self, t = None, y = None):
