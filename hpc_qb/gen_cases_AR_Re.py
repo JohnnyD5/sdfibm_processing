@@ -10,7 +10,7 @@ if not os.path.exists('template'):
 k = 0.2
 AR_list = [0.33, 0.25, 0.65]
 Re_list = [5, 6, 7 , 8, 10, 15, 20, 30, 40]
-
+for k in k_list:
 for AR in AR_list:
     for Re in Re_list:
         casename = "case_AR%.2f_Re%1.f"%(AR,Re)
