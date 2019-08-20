@@ -21,41 +21,41 @@ FoamFile
     {
         type            patch;
         nFaces          200;
-        startFace       79600;
+        startFace       179350;
     }
     right
     {
         type            patch;
         nFaces          200;
-        startFace       79800;
+        startFace       179550;
     }
     bottom
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          200;
-        startFace       80000;
+        nFaces          450;
+        startFace       179750;
     }
     top
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          200;
-        startFace       80200;
+        nFaces          450;
+        startFace       180200;
     }
     front
     {
         type            empty;
         inGroups        1(empty);
-        nFaces          40000;
-        startFace       80400;
+        nFaces          90000;
+        startFace       180650;
     }
     back
     {
         type            empty;
         inGroups        1(empty);
-        nFaces          40000;
-        startFace       120400;
+        nFaces          90000;
+        startFace       270650;
     }
 )
 
