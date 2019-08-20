@@ -8,3 +8,4 @@ python gen_cases
 ```
 bash runall.sh
 ```
+**Note**: blockMesh the template if you changed the blockmesh file.

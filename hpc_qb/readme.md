@@ -14,3 +14,5 @@ To run sdfibm on hpc, add this line to the ~/.bashrc file
 ```
 export PATH=$PATH:~/sdfibm/src
 ```
+
+**Note**: blockMesh the template if you changed the blockmesh file.
