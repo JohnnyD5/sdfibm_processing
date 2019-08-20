@@ -45,7 +45,7 @@ materials
     {
       name mat1;
       type General;
-      rho 1.003;
+      rho rhos_val;
       rn 0.9;
       rt 0.9;
     }
