@@ -1,3 +1,4 @@
+# workstation
 ```
 ssh -X zhizhong@130.39.39.248
 ```
@@ -8,14 +9,11 @@ python gen_cases
 ```
 bash runall.sh
 ```
-**Note**: blockMesh the template if you changed the blockmesh file.
 
-
-This is the package used to run on HPC_QB
-
+# QB
 The python file will auto-generate the job.pbs files for all folders
 
-*runall* is used to submit jobs
+*runall_qb* is used to submit jobs
 
 One thing to keep in mind: each work is done in just one processor.
 
@@ -27,5 +25,3 @@ To run sdfibm on hpc, add this line to the ~/.bashrc file
 ```
 export PATH=$PATH:~/sdfibm/src
 ```
-
-**Note**: blockMesh the template if you changed the blockmesh file.
