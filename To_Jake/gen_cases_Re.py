@@ -7,12 +7,12 @@ if not os.path.exists('template'):
 
 ### only change the list below
 rhos_list = [1.003]
-#k_list = [0.2, 0.33, 0.4, 0.3]
-k_list =[0.2]
-#AR_list = [0.5, 0.25,0.33, 0.65, 0.4]
-AR_list = [0.5]
-#Re_list = [7, 8, 9, 10, 15, 20, 30]
-Re_list = [7.0, 7.2, 7.4, 7.6, 7.8, 8.0]
+k_list = [0.2, 0.33, 0.4, 0.3]
+#k_list =[0.2]
+AR_list = [0.5, 0.25,0.33, 0.65, 0.4]
+#AR_list = [0.5]
+Re_list = [7, 8, 9, 10, 15, 20, 30]
+#Re_list = [7.0, 7.2, 7.4, 7.6, 7.8, 8.0]
 mesh_list = [15,20,25]
 ###
 for mesh in mesh_list:
