@@ -1,31 +1,42 @@
+## Use HPC for all works
+Use my credentials
 ```
-ssh -X zhizhong@130.39.39.248
+ssh -X dingzhiz@qb1.loni.org
+pw: Happywork*890418
 ```
-Go to the folder
+* Go to the folder
 ```
-python gen_cases
+cd /work/dingzhiz/ellipse/c_Re
 ```
+* run python file
+```
+python gen_cases_Re.py
+```
+* submit jobs
 ```
 bash runall.sh
 ```
-**Note**: blockMesh the template if you changed the blockmesh file.
 
+## Loni checks
+* `qstat` check the status of submitted jobs
 
-This is the package used to run on HPC_QB
+* [QB documentation](http://www.hpc.lsu.edu/docs/guides.php?system=QB2) FYI
 
-The python file will auto-generate the job.pbs files for all folders
+## Goal:
+Find all critical Re for all different scenarios, and fill out the `c_Re` sheet in the `Rigorous_plan.xlsx`
 
-*runall* is used to submit jobs
+The Reynolds number listed in the python file are just priliminary guess, after you run the cases, you should be able to fine tune Re to get critical Re for all cases.
 
-One thing to keep in mind: each work is done in just one processor.
+Keep all files generated intact in HPC (don't make changes to any of them), you can download `cloud.out` file to your local folders and check the time series data with the processing python file `oneFile.py`. After opening it with SPYDER, Your just need to hit `F5` to run, and copy the absolute path to the command window, then the figure will show.
 
-So we just use single node with 1 ppn
+Critical Re is defined as the threshold where the particle stops rotating. So in time series figure, last time it shows a periodical angular velocity, next time it shows a straight line for angular velocity as shown below.
 
-if we allocate more, but don't decompose the case, all unused processors will be idle, giving a warning of wasting resources
+The left picture's Re is 7.2, right one is 7.4, so we know the critical Re should be 7.3
 
-To run sdfibm on hpc, add this line to the ~/.bashrc file
-```
-export PATH=$PATH:~/sdfibm/src
-```
+![pic1](periodic.png)
+![pic2](linger.png)
 
-**Note**: blockMesh the template if you changed the blockmesh file.
+## Note
+* Precision requires at least 1 decimal place. e.g. `7.3`  
+* It takes roughly two days for one case to finish, so plan your time wisely, I need the all results by **next Thursday(09/19)**.
+* If you have any questions like unable to sumbit jobs or unable to run python files, ask me asap.
