@@ -1,3 +1,5 @@
+I have already run the preliminary cases on HPC, you just need to find out the critical Re for them, then fine tune Re.
+
 ## Use HPC for all works
 Use my credentials
 ```
@@ -25,7 +27,7 @@ bash runall.sh
 ## Goal:
 Find all critical Re for all different scenarios, and fill out the `c_Re` sheet in the `Rigorous_plan.xlsx`
 
-The Reynolds number listed in the python file are just priliminary guess, after you run the cases, you should be able to fine tune Re to get critical Re for all cases.
+The Reynolds number listed in the python file are just preliminary guess, after you run the cases, you should be able to fine tune Re to get critical Re for all cases.
 
 Keep all files generated intact in HPC (don't make changes to any of them), you can download `cloud.out` file to your local folders and check the time series data with the processing python file `oneFile.py`. After opening it with SPYDER, Your just need to hit `F5` to run, and copy the absolute path to the command window, then the figure will show.
 
