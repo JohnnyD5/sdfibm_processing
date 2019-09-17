@@ -1,35 +1,27 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Aug 23 10:52:44 2019
+Created on Tue Sep 17
 
-@author: zding5
+@author: Zhizhong Ding
 """
 
 import os
-
-os.system('mkdir download')
-os.chdir('download')
-# only change the list below
-rhos_list = [1.003]
-k_list = [0.2, 0.33, 0.4]
-#k_list =[0.2]
-AR_list = [0.25, 0.33, 0.5, 0.65, 0.75]
-#AR_list = [0.5]
-Re_list = [7, 8, 9, 10, 15, 20, 30]
-#Re_list = [7.0, 7.2, 7.4, 7.6, 7.8, 8.0]
-###
-for rhos in rhos_list:
-    for k in k_list:
-        for AR in AR_list:
-            for Re in Re_list:
-                casename = "case_rhos%.1f_k%.2f_AR%.2f_Re%.1f"%(rhos,k,AR,Re)
-                print("generate case: ", casename)
-                os.system('mkdir %s' % casename)
-                os.system('cp ../%s/cloud.out %s/.'%(casename, casename))
-                os.system('cp -r ../%s/0 %s/.'%(casename, casename))
-                os.system('cp -r ../%s/250 %s/.'%(casename, casename))
-                os.system('cp -r ../%s/constant %s/.'%(casename, casename))
-                os.system('cp -r ../%s/system %s/.'%(casename, casename))
-                os.system('cp ../%s/solidDict %s/.'%(casename, casename))
-                os.system('cp ../%s/view.foam %s/.'%(casename, casename))
+try:
+    os.mkdir('download')
+except:
+    print("download already existed")
+for folder in os.listdir("."):
+    if folder.startswith('case'):
+        try:
+            os.mkdir('download/%s'%(folder))
+            print('copying %s'%(folder))
+        except:
+            print('%s already existed'%(folder))
+        os.system('cp ./%s/cloud.out download/%s/.'%(folder, folder))
+        os.system('cp -r ./%s/0 download/%s/.'%(folder, folder))
+        os.system('cp -r ./%s/250 download/%s/.'%(folder, folder))
+        os.system('cp -r ./%s/constant download/%s/.'%(folder, folder))
+        os.system('cp -r ./%s/system download/%s/.'%(folder, folder))
+        os.system('cp ./%s/solidDict download/%s/.'%(folder, folder))
+        os.system('cp ./%s/view.foam download/%s/.'%(folder, folder))
 print("Program runs successfully!")
