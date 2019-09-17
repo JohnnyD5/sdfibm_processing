@@ -1,4 +1,5 @@
 import os
+import numpy as np
 
 if not os.path.exists('template'):
     print('template case does not exist!')
@@ -7,13 +8,11 @@ if not os.path.exists('template'):
 
 ### only change the list below
 rhos_list = [1.003]
-k_list = [0.2, 0.33, 0.4]
-#k_list =[0.2]
-AR_list = [0.25, 0.33, 0.5, 0.65, 0.75]
-#AR_list = [0.5]
-Re_list = [7, 8, 9, 10, 15, 20, 30]
-
-#Re_list = [7.0, 7.2, 7.4, 7.6, 7.8, 8.0]
+k_list = [0.4]
+AR_list = [0.75]
+#Re_list = np.arange(8.1,9,0.1)
+#Re_list= range(20,30)
+Re_list = [35,40,45,50,55,60]
 ###
 for rhos in rhos_list:
     for k in k_list:
