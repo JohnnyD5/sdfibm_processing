@@ -10,6 +10,5 @@ rm -r download
 cd ..
 python download.py
 ```
-*Note*: Need to make changes to the python file for the subfolder parameters
 
 5. download everything in `download` folder to local folder
