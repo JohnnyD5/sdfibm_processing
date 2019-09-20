@@ -77,7 +77,7 @@ solids
       shp_name ellipse1;
       mot_name onlyzrot1;
       mat_name mat1;
-      pos (0.0 0.0 0.0);
+      pos (px py 0.0);
       vel (0.0 0.0 0.0);
     }
 }

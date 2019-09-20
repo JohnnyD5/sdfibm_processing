@@ -4,7 +4,6 @@ I have already run the preliminary cases on HPC, you just need to find out the c
 Use my credentials
 ```
 ssh -X dingzhiz@qb1.loni.org
-pw: Happywork*890418
 ```
 * Go to the folder
 ```
