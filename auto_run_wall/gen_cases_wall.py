@@ -9,10 +9,10 @@ if not os.path.exists('template'):
 ### only change the list below
 rhos_list = [1.003]
 k_list = [0.2]
-AR_list = [0.5]
+AR_list = [0.65]
 #Re_list = np.arange(8.1,9,0.1)
 #Re_list= range(20,30)
-Re_list = [5,6,7,8,9,10,12,15]
+Re_list = [10,15,18,19,20,25]
 position_tuple = [(0,-0.1),(0,-0.2),(0,-0.3),(0,-0.35),(0,-0.38)]
 ###
 for rhos in rhos_list:
