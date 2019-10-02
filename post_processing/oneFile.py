@@ -6,6 +6,7 @@ Created on Sun Jul 28 10:02:50 2019
 """
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 pd.set_option('precision', 6)
 pd.set_option('expand_frame_repr', True)
 
@@ -41,8 +42,14 @@ class oneFile():
         return
 
     def test(self):
-        print(type(self.data['v_mag']))
+        print(self.data['fy'])
         return 0
+    def last_eulerAngle(self):
+        print(self.data['EulerAz'])
+        eulerAz = self.data.loc[self.data.index[-1],'EulerAz'] * 180 / np.pi
+        print("the angle is: %.2f"%(eulerAz))
+        
+        
 
 if __name__ == '__main__':
     path = input("Please identify the path of desired folder; the folder should contain cloud.out file:\n")
@@ -56,3 +63,4 @@ if __name__ == '__main__':
     case = oneFile(path)
     case.plot_angularV_over_t()
     case.test()
+    #case.last_eulerAngle()
