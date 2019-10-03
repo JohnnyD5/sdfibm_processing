@@ -23,7 +23,7 @@ pd.set_option('expand_frame_repr', True)
 class multiFiles():
     def __init__(self, path = None):
         if len(path) < 1:
-            path = 'E:/work/LidDrivenCavity/with_shashank/c_Re/first_batch'
+            path = 'D:/work/LidDrivenCavity/ellipse_in_shear/c_Re/first_batch'
         self.path = path + '/'
         self.sub_path = np.array([])
         self.legend_name = []
