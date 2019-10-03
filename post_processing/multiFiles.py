@@ -83,7 +83,9 @@ class multiFiles():
             df = pd.read_hdf(self.sub_path[i]+'/cloud.h5',key='cloud')
             x = df['t']
             y = abs(df['wz'])
-            #ax.plot(x, y, label = "%s = %.1f"% (labelName,legendN[i]),color = colors[i])
+            # without line styles
+            #ax.plot(x, y, label = "%s = %.1f"% (label_name,self.legend_name[i]))   
+            # with line styles
             ax.plot(x, y, label = "%s = %.1f"% (label_name,self.legend_name[i]), linestyle = self.line_style[i][1])
         plt.rcParams["font.family"] = "Times New Roman"  
         #adds a title and axes labels
