@@ -13,7 +13,7 @@ pd.set_option('expand_frame_repr', True)
 class oneFile():
     def __init__(self, path = None):
         if len(path) < 1:
-            path = 'D:/work/LidDrivenCavity/with_shashank/k_Re_rhos1_400/case_Re7.0'
+            path = 'E:/work/LidDrivenCavity/with_shashank/c_Re/first_batch/case_m15_rhos1.0_k0.2_AR0.5_Re7.0'
         self.path = path + '/cloud.out'
         pdf=pd.read_csv(self.path, delimiter = ' ', names = ["t", "x", "y", "z",
                        "vx", "vy", "vz", "fx", "fy", "fz", "EulerAx", "EulerAy",
@@ -23,7 +23,7 @@ class oneFile():
         self.data = pd.read_hdf(path + '/cloud.h5', key='cloud')
         self.data['v_mag'] = (self.data['vx']**2 + self.data['vy']**2)**0.5
 
-    def plot_angularV_over_t(self, t = None, y = None):
+    def plot_w_time_series(self, t = None, y = None):
         # Plot the angular velocity of the ellipse over time
         if t is None:
             t = self.data['t']
@@ -48,8 +48,8 @@ class oneFile():
         print(self.data['EulerAz'])
         eulerAz = self.data.loc[self.data.index[-1],'EulerAz'] * 180 / np.pi
         print("the angle is: %.2f"%(eulerAz))
-        
-        
+
+
 
 if __name__ == '__main__':
     path = input("Please identify the path of desired folder; the folder should contain cloud.out file:\n")
@@ -61,6 +61,6 @@ if __name__ == '__main__':
     path = ''.join(path)
     ###
     case = oneFile(path)
-    case.plot_angularV_over_t()
-    case.test()
+    case.plot_w_time_series()
+    #case.test()
     #case.last_eulerAngle()
