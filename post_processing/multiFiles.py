@@ -27,6 +27,17 @@ class multiFiles():
         self.path = path + '/'
         self.sub_path = np.array([])
         self.legend_name = []
+        self.line_style = [
+                     ('solid',                (0, (1, 0))),
+                     ('dotted',                (0, (1, 1))),
+                
+                     ('dashed',                (0, (5, 5))),
+                     ('densely dashed',        (0, (5, 1))),
+                
+                     ('dashdotted',            (0, (3, 5, 1, 5))),
+                     ('densely dashdotted',    (0, (3, 1, 1, 1))),
+                
+                     ('dashdotdotted',         (0, (3, 5, 1, 5, 1, 5)))]
 
     def readData(self, starts_chars):
         # starts_chars is the starting characters of the sub folder's name, ex. case_m15
@@ -39,7 +50,7 @@ class multiFiles():
             value = float(''.join(re.findall(r"Re\d*\.\d*",self.sub_path[i])[0].strip('Re')))
             self.legend_name = np.append(self.legend_name,value)
         print("Selected folders are:\n", self.sub_path)
-        decision = input("Do you want to override old cloud.h5 file? (y/n), say y only when changes are made to the source code.\n")
+        decision = input("Do you want to override old cloud.h5 file? (y/n), say y only when changes are made to the source code, or just hit enter not to override.\n")
         yes_list = ['y', 'yes', 'Y', 'YES']
         if decision in yes_list:
             print("Overriding and assembling data...")
@@ -73,7 +84,7 @@ class multiFiles():
             x = df['t']
             y = abs(df['wz'])
             #ax.plot(x, y, label = "%s = %.1f"% (labelName,legendN[i]),color = colors[i])
-            ax.plot(x, y, label = "%s = %.1f"% (label_name,self.legend_name[i]))
+            ax.plot(x, y, label = "%s = %.1f"% (label_name,self.legend_name[i]), linestyle = self.line_style[i][1])
         plt.rcParams["font.family"] = "Times New Roman"  
         #adds a title and axes labels
         ax.set_xlabel('t')
@@ -118,7 +129,7 @@ if __name__ == '__main__':
     path = ''.join(path)
     ###
     case = multiFiles(path)
-    case.test()
     case.readData('case_m15')
+    case.test()
     case.plot_w_time_series()
     #case.last_eulerAngle()
