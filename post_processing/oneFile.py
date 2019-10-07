@@ -7,13 +7,14 @@ Created on Sun Jul 28 10:02:50 2019
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import scipy.signal
 pd.set_option('precision', 6)
 pd.set_option('expand_frame_repr', True)
 
 class oneFile():
     def __init__(self, path = None):
         if len(path) < 1:
-            path = 'E:/work/LidDrivenCavity/with_shashank/c_Re/first_batch/case_m15_rhos1.0_k0.2_AR0.5_Re7.0'
+            path = 'E:/work/LidDrivenCavity/ellipse_in_shear/c_Re/first_batch/case_m15_rhos1.0_k0.2_AR0.5_Re7.0'
         self.path = path + '/cloud.out'
         pdf=pd.read_csv(self.path, delimiter = ' ', names = ["t", "x", "y", "z",
                        "vx", "vy", "vz", "fx", "fy", "fz", "EulerAx", "EulerAy",
@@ -48,6 +49,12 @@ class oneFile():
         print(self.data['EulerAz'])
         eulerAz = self.data.loc[self.data.index[-1],'EulerAz'] * 180 / np.pi
         print("the angle is: %.2f"%(eulerAz))
+        
+    def dimensionless_period(self):
+        peaks, _ = scipy.signal.find_peaks(abs(self.data['wz']),height=1)
+        GT = self.data.iloc[peaks[-2]]['t']-self.data.iloc[peaks[-3]]['t']
+        GT *= 2
+        print("GT is: %.2f"%(GT))
 
 
 
@@ -62,5 +69,6 @@ if __name__ == '__main__':
     ###
     case = oneFile(path)
     case.plot_w_time_series()
+    case.dimensionless_period()
     #case.test()
     #case.last_eulerAngle()

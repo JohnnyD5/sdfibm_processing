@@ -23,7 +23,7 @@ pd.set_option('expand_frame_repr', True)
 class multiFiles():
     def __init__(self, path = None):
         if len(path) < 1:
-            path = 'D:/work/LidDrivenCavity/ellipse_in_shear/c_Re/first_batch'
+            path = 'E:/work/LidDrivenCavity/ellipse_in_shear/c_Re/c_Re300'
         self.path = path + '/'
         self.sub_path = np.array([])
         self.legend_name = []
@@ -131,7 +131,7 @@ if __name__ == '__main__':
     path = ''.join(path)
     ###
     case = multiFiles(path)
-    case.readData('case_m15')
+    case.readData('case_rhos1.0_k0.2_AR0.5_')
     case.test()
     case.plot_w_time_series()
     #case.last_eulerAngle()
