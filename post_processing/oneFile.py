@@ -51,7 +51,7 @@ class oneFile():
         print("the angle is: %.2f"%(eulerAz))
         
     def dimensionless_period(self):
-        peaks, _ = scipy.signal.find_peaks(abs(self.data['wz']),height=1)
+        peaks, _ = scipy.signal.find_peaks(abs(self.data['wz']),height=0.8)
         GT = self.data.iloc[peaks[-2]]['t']-self.data.iloc[peaks[-3]]['t']
         GT *= 2
         print("GT is: %.2f"%(GT))
